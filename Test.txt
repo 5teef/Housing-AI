@@ -1,0 +1,17 @@
+# # Define your mapping as a dictionary
+# order_mapping = {
+#     '<1H OCEAN': 1,
+#     'NEAR BAY': 3,
+#     'NEAR OCEAN': 2,
+#     'INLAND': 0,
+    
+# }
+
+# # Apply the mapping to your column
+# filtered_housing['ocean_proximity_ranked'] = filtered_housing['ocean_proximity'].map(order_mapping)
+# # Convert the 'ocean_proximity_ranked' column to float
+# filtered_housing['ocean_proximity_ranked'] = filtered_housing['ocean_proximity_ranked'].astype(float)
+
+
+# print("\nNew Filtered Housing Data:")
+# filtered_housing.info()
