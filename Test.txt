@@ -15,3 +15,66 @@
 
 # print("\nNew Filtered Housing Data:")
 # filtered_housing.info()
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+X = filtered_housing.drop('median_house_value', axis=1)
+y = filtered_housing.data['median_house_value']
+
+# Split the data into training set and test set
+# X_train, X_test, y_train, y_test = train_test_split(X, y, test_size=0.2, random_state=42)
+
+# First, split your data into a larger training set and a test set
+X_train_full, X_test, y_train_full, y_test = train_test_split(X, y, test_size=0.2, random_state=42)
+
+# Then, split your larger training set into a smaller training set and a validation set
+X_train, X_val, y_train, y_val = train_test_split(X_train_full, y_train_full, test_size=0.2, random_state=42)
+
+
+
+
+
+
+
+
+
+import seaborn as sns
+import matplotlib.pyplot as plt
+
+# Set the font scale for better visibility
+sns.set(font_scale=1.5)
+
+# Copy the DataFrame
+housingfloat = filtered_housing.copy()
+
+# Drop the 'ocean_proximity' column
+housingfloat = housingfloat.drop(['ocean_proximity'], axis=1)
+
+# Calculate the correlation matrix
+corr_matrix = housingfloat.corr()
+
+# Plot the heatmap
+plt.figure(figsize=(15,10))
+sns.heatmap(corr_matrix, annot=True, fmt=".2f", cmap='coolwarm')  # Use a diverging color palette
+plt.show()
